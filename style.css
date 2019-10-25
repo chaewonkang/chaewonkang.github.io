@@ -13,6 +13,10 @@ a {
   text-decoration: none;
 }
 
+li {
+  margin: 0;
+}
+
 a:hover {
   color:white;
 }
@@ -60,19 +64,22 @@ ul {
 }
 
 .menu {
-  font-size: 3em;
-  line-height: 1.5em;
+  font-size: 2.8em;
+}
+
+.category {
+  text-decoration: none;
+  font-weight: 300;
 }
 
 #name {
-  text-align: left;
   padding: 20px;
-  position: fixed;
   float: right;
-  width: 250px;
+  width: 50px;
 }
 
 h1 {
+  text-align: left;
   font-size: 3em;
 }
 
@@ -88,8 +95,7 @@ h1 {
 }
 
 img {
-  width: 80%;
-  padding-top: 20px;
+  width: 100%;
 }
 .indent {
   text-indent: 40px;
@@ -115,7 +121,6 @@ input[type="button"].button {
   }
   img {
     width: 100%;
-    padding-top: 20px;
   }
   iframe {
     width: 100%;
@@ -144,7 +149,6 @@ input[type="button"].button {
   }
   img {
     width: 100%;
-    padding-top: 10px;
   }
   iframe {
     width: 100%;
@@ -157,7 +161,6 @@ input[type="button"].button {
   }
   img {
     width: 100%;
-    padding-top: 10px;
   }
   iframe {
     width: 100%;
