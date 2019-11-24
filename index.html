@@ -9,7 +9,6 @@
       <canvas width="640" height="1136" style="width: 320px; height: 568px;">
     </div>
     <script>
-    jQuery(function () {
       var canvasTag = document.querySelector("canvas");
 
       canvasTag.width = window.innerWidth * 2;
@@ -19,7 +18,7 @@
       canvasTag.style.height = window.innerHeight + "px";
 
       var context = canvasTag.getContext("2d");
-      context.scale(2, 2);
+      context.scale(5, 5);
 
       var i = 0;
       var images = ["images/1.jpg",
@@ -31,7 +30,8 @@
 
       document.addEventListener("touchmove", function (event) {
           if (images[i].complete) {
-              context.drawImage(images[i], event.getBoundingClientRect, 60, 40);
+              const bound = canvasTag.getBoundingClientRect()
+              context.drawImage(images[i], bound.x, bound.y, 100, 200);
           }
       });
 
@@ -42,7 +42,6 @@
           }
       });
 
-    });
     </script>
   </body>
 </html>
