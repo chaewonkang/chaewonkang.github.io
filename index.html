@@ -31,8 +31,9 @@
       document.addEventListener("touchmove", function (event) {
           if (images[i].complete) {
               const bound = canvasTag.getBoundingClientRect()
-              return [xy[0] - bound.x, xy[1] - bound.y]
               context.drawImage(images[i], bound.x, bound.y, 100, 200);
+              return [xy[0] - bound.x, xy[1] - bound.y]
+
           }
       });
 
