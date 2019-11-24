@@ -30,11 +30,12 @@
 
       document.addEventListener("touchmove", function (event) {
           if (images[i].complete) {
+              function getCoor(canvasTag, xy) {}
               const bound = canvasTag.getBoundingClientRect()
               context.drawImage(images[i], bound.x, bound.y, 100, 200);
               return [xy[0] - bound.x, xy[1] - bound.y]
-
-          }
+            }
+            getCoor(canvasTag, xy);
       });
 
       canvasTag.addEventListener("click", function () {
