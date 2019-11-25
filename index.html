@@ -7,10 +7,13 @@
   </head>
   <body>
     <div class="main">
-      <canvas width="640" height="1136" style="width: 320px; height: 568px;">
+      <canvas width="640" height="1136">
     </div>
     <script>
-      var canvasTag = document.querySelector("canvas");
+
+      "use strict";
+
+      let canvasTag = document.querySelector("canvas");
 
       canvasTag.width = window.innerWidth * 2;
       canvasTag.height = window.innerHeight * 2;
@@ -18,18 +21,31 @@
       canvasTag.style.width = window.innerWidth + "px";
       canvasTag.style.height = window.innerHeight + "px";
 
-      var context = canvasTag.getContext("2d");
+      let context = canvasTag.getContext("2d");
       context.scale(5, 5);
 
-      var i = 0;
-      var images = ["images/1.jpg",
+      let i = 0;
+      let images = ["images/1.jpg",
     "images/2.jpg", "images/3.jpg", "images/4.jpg", "images/5.jpg", "images/6.jpg", "images/7.jpg", "images/8.jpg", "images/9.jpg", "images/10.jpg", "images/11.jpg", "images/12.jpg", "images/13.jpg"].map(src => {
-          var image = document.createElement("img");
+          let image = document.createElement("img");
           image.src = src;
           return image;
       });
 
+      document.addEventListener("touchstart", function(event) {
+        xy = getCoor(canvasTag, [e.touches[0].clientX, e.touches[0].clientY])
+      });
+
+      document.addEventListener("touchend", function(event) {
+        xy = [null, null]
+      });
+
       document.addEventListener("touchmove", function (event) {
+          e.preventDefault();
+
+          const newXY = getCoor(canvasTag, [e.touches[0].clientX, e.touches[0].clientY])
+          const d = ((newXY[0] - xy[0]) ** 2 + (newXY[1] - xy[1]) ** 2) ** 0.5
+
           if (images[i].complete) {
               function getCoor(canvasTag, xy) {}
               const bound = canvasTag.getBoundingClientRect()
