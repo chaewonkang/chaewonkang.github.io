@@ -26,7 +26,7 @@
           image.src = src;
           return image;
       });
-      document.addEventListener("touchmove", function(event) {
+      canvasTag.addEventListener("touchmove", function(event) {
           event.preventDefault();
 
           if (images[i].complete) {
