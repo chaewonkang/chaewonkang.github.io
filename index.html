@@ -8,25 +8,35 @@
   <body>
       <canvas width="100%";>
     <script>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+  </head>
+  <body>
+    <div class="main">
+      <canvas width="640" height="1136">
+    </div>
+    <script>
       "use strict";
-
-      var canvasTag = document.querySelector("canvas");
+      let canvasTag = document.querySelector("canvas");
       canvasTag.width = window.innerWidth * 2;
       canvasTag.height = window.innerHeight * 2;
       canvasTag.style.width = window.innerWidth + "px";
       canvasTag.style.height = window.innerHeight + "px";
       var context = canvasTag.getContext("2d");
       context.scale(5, 5);
-      var i = 0;
-      var images = ["images/1.jpg",
+      let i = 0;
+      let images = ["images/1.jpg",
     "images/2.jpg", "images/3.jpg", "images/4.jpg", "images/5.jpg", "images/6.jpg", "images/7.jpg", "images/8.jpg", "images/9.jpg", "images/10.jpg", "images/11.jpg", "images/12.jpg", "images/13.jpg"].map(src => {
-          var image = document.createElement("img");
+          let image = document.createElement("img");
           image.src = src;
           return image;
       });
-      canvasTag.addEventListener("touchmove", function(event) {
+      document.addEventListener("touchmove", function(event) {
           event.preventDefault();
-
           if (images[i].complete) {
               const bound = canvasTag.getBoundingClientRect()
               context.drawImage(images[i], bound.x, bound.y, 100, 200);
@@ -38,6 +48,9 @@
               i = 0
           }
       });
+    </script>
+  </body>
+</html>
     </script>
   </body>
 </html>
