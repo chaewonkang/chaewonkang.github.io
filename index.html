@@ -38,7 +38,7 @@
         xy = [null, null]
       });
 
-      canvasTag.addEventListener("touchmove", function (event) {
+      canvasTag.addEventListener("touchmove", function(event) {
           e.preventDefault();
 
           const newXY = getCoor(canvasTag, [e.touches[0].clientX, e.touches[0].clientY])
@@ -50,6 +50,7 @@
               context.drawImage(images[i], bound.x, bound.y, 100, 200);
               return [xy[0] - bound.x, xy[1] - bound.y]
             }
+            
             getCoor(canvasTag, xy);
       });
 
