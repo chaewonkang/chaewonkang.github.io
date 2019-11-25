@@ -29,6 +29,11 @@
           image.src = src;
           return image;
       });
+      
+      function getCoor(canvas, xy) {
+        const bound = canvas.getBoundingClientRect();
+        return [xy[0] - bound.x, xy[1] - bound.y]
+      };
 
       canvasTag.addEventListener("touchstart", function(event) {
         xy = getCoor(canvasTag, [e.touches[0].clientX, e.touches[0].clientY])
