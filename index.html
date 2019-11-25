@@ -7,53 +7,39 @@
   </head>
   <body>
     <div class="main">
-      <canvas width="640" height="1136" style="width: 320px; height: 568px;">
+      <canvas width="640" height="1136">
     </div>
     <script>
-
       "use strict";
 
-      let xy = [null, null];
-      let canvasTag = document.querySelector("canvas");
-
+      var canvasTag = document.querySelector("canvas");
       canvasTag.width = window.innerWidth * 2;
       canvasTag.height = window.innerHeight * 2;
-
       canvasTag.style.width = window.innerWidth + "px";
       canvasTag.style.height = window.innerHeight + "px";
-
-      let context = canvasTag.getContext("2d");
+      var context = canvasTag.getContext("2d");
       context.scale(5, 5);
-
-      let i = 0;
-      let images = ["images/1.jpg",
+      var i = 0;
+      var images = ["images/1.jpg",
     "images/2.jpg", "images/3.jpg", "images/4.jpg", "images/5.jpg", "images/6.jpg", "images/7.jpg", "images/8.jpg", "images/9.jpg", "images/10.jpg", "images/11.jpg", "images/12.jpg", "images/13.jpg"].map(src => {
-          let image = document.createElement("img");
+          var image = document.createElement("img");
           image.src = src;
           return image;
       });
-
-      document.addEventListener("touchmove", function (event) {
+      canvasTag.addEventListener("touchmove", function (event) {
           event.preventDefault();
 
-          const newXY = getCoor(canvasTag, [event.touches[0].clientX, event.touches[0].clientY])
-
           if (images[i].complete) {
-              function getCoor(canvasTag, xy) {
               const bound = canvasTag.getBoundingClientRect()
               context.drawImage(images[i], bound.x, bound.y, 100, 200);
-              return [xy[0] - bound.x, xy[1] - bound.y]
-            }
           }
-        });
-
+      });
       canvasTag.addEventListener("click", function () {
           i = i + 1
           if (i >= images.length ) {
               i = 0
           }
       });
-
     </script>
   </body>
 </html>
