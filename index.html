@@ -33,20 +33,7 @@
           return image;
       });
 
-      function getCoor(canvasTag, xy) {
-        const bound = canvasTag.getBoundingClientRect();
-        return [xy[0] - bound.x, xy[1] - bound.y]
-      }
-
-      // canvasTag.addEventListener("touchstart", function(event) {
-      //   xy = getCoor(canvasTag, [event.touches[0].clientX, event.touches[0].clientY])
-      // });
-      //
-      // canvasTag.addEventListener("touchend", function(event) {
-      //   xy = [null, null]
-      // });
-
-      canvasTag.addEventListener("touchmove", function (event) {
+      document.addEventListener("touchmove", function (event) {
           event.preventDefault();
 
           const newXY = getCoor(canvasTag, [event.touches[0].clientX, event.touches[0].clientY])
