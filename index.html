@@ -11,7 +11,7 @@
     </div>
     <script>
       "use strict";
-
+      
       var canvasTag = document.querySelector("canvas");
 
       canvasTag.width = window.innerWidth * 2;
@@ -32,6 +32,8 @@
       });
 
       document.addEventListener("touchmove", function (event) {
+          event.preventDefault();
+        
           if (images[i].complete) {
               const bound = canvasTag.getBoundingClientRect()
               context.drawImage(images[i], bound.x, bound.y, 100, 200);
