@@ -11,8 +11,6 @@
     </div>
     <script>
 
-      "use strict";
-
       let canvasTag = document.querySelector("canvas");
 
       canvasTag.width = window.innerWidth * 2;
@@ -47,7 +45,7 @@
           const d = ((newXY[0] - xy[0]) ** 2 + (newXY[1] - xy[1]) ** 2) ** 0.5
 
           if (images[i].complete) {
-              function getCoor(canvasTag, xy) {}
+              function getCoor(canvasTag, xy) {
               const bound = canvasTag.getBoundingClientRect()
               context.drawImage(images[i], bound.x, bound.y, 100, 200);
               return [xy[0] - bound.x, xy[1] - bound.y]
@@ -55,7 +53,7 @@
             getCoor(canvasTag, xy);
       });
 
-      canvasTag.addEventListener("click", function () {
+      document.addEventListener("click", function () {
           i = i + 1
           if (i >= images.length ) {
               i = 0
