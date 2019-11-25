@@ -31,7 +31,7 @@
           return image;
       });
 
-      document.addEventListener("touchmove", function (event) {
+      canvasTag.addEventListener("touchmove", function(event) {
           event.preventDefault();
         
           if (images[i].complete) {
@@ -40,7 +40,8 @@
           }
       });
 
-      canvasTag.addEventListener("click", function () {
+      canvasTag.addEventListener("click", function() {
+        
           i = i + 1
           if (i >= images.length ) {
               i = 0
